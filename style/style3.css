@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Rubik","Open Sans", sans-serif;
+}
+
+body{
+  display: flex;
+  padding: 0 10px;
+  min-height: 100vh;
+  align-items: center;
+  background: url(/images/hero-bg2.jpg);
+  justify-content: center;
+}
+::selection{
+  color: #fff;
+  background: #3498DB;
+}
+.qrcode-generator {
+  top: -100px;
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* background: url(/images/bg.jpg); */
+  background-position: top;
+}
+
+.qrcode-generator::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background: #121212;
+}
+
+.qrcode-generator .content {
+  position: relative;
+  color: #fff;
+  padding: 0 15px;
+  max-width: 760px;
+  text-align: center;
+}
+
+.qrcode-generator h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.qrcode-generator p {
+  margin-top: 10px;
+  font-size: 1.35rem;
+  margin-bottom: 20px;
+}
+.wrapper{
+  color: #121212;
+  height: 285px;
+  width: 675px;
+  max-width: 720px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 7px;
+  padding: 20px 25px 0;
+  transition: height 0.2s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.wrapper.active{
+  height: 530px;
+}
+header h1{
+  padding-bottom: 10px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 21px;
+  font-weight: 500;
+}
+header p{
+  margin-top: 5px;
+  color: #575757;
+  font-size: 16px;
+}
+.wrapper .form{
+  margin: 20px 0 25px;
+}
+.form :where(input, button){
+  width: 100%;
+  height: 55px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  transition: 0.1s ease;
+}
+.form input{
+  font-size: 18px;
+  padding: 0 17px;
+  border: 1px solid #999;
+}
+.form input:focus{
+  box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+}
+.form input::placeholder{
+  color: #999;
+}
+.form button{
+  color: #fff;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 17px;
+  background: #8F00FF;
+}
+.qr-code{
+  opacity: 0;
+  display: flex;
+  padding: 33px 0;
+  border-radius: 5px;
+  align-items: center;
+  pointer-events: none;
+  justify-content: center;
+  border: 1px solid #ccc;
+}
+.wrapper.active .qr-code{
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.5s 0.05s ease;
+}
+.qr-code img{
+  width: 170px;
+}
+@media screen and (max-width: 920px) {
+  .qrcode-generator {
+    height: 50vh;
+    top: -20px;
+    background: url(/images/hero-bg2.jpg) center/cover no-repeat;
+  }
+
+  .qrcode-generator h1 {
+    font-size: 1.8rem;
+  }
+
+  .qrcode-generator p {
+    font-size: 1rem;
+  }
+  
+  .wrapper{
+    width: auto;
+    height: auto;
+    text-align: center;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0 auto;
+    padding: 15px 15px;
+    border-radius: 7px;
+    background: #fff;
+    box-shadow: 7px 7px 20px rgba(0,0,0,0.05);
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .wrapper header{
+    margin: 0 auto;
+    font-size: 28px;
+    font-weight: 500;
+    text-align: center;
+  }
+  .wrapper form{
+    margin: 25px 0 10px;
+  }
+  .qr-code img{
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .qrcode-generator {
+    height: 15vh;
+    padding-top: -50px;
+    background: url(/images/hero-bg2.jpg) center/cover no-repeat;
+  }
+
+  .qrcode-generator h1 {
+    font-size: 1.8rem;
+  }
+
+  .qrcode-generator p {
+    font-size: 1rem;
+  }
+  .wrapper{
+    max-width: 100%;
+    overflow-x: hidden;
+    width: 100px;
+  }
+}
+/* @media(max-width: 400px){
+  .wrapper{
+    max-width: 300px;
+    width: 100%;
+    order: 2;
+  }
+} */
+@media (max-width: 430px){
+  .wrapper{
+    top: 20px;
+    margin: auto;
+    width: 300px;
+    height: 500px;
+    padding: 30px 20px;
+    /* overflow-y: hidden; */
+  }
+  .wrapper.active{
+    height: 510px;
+  }
+  header p{
+    color: #696969;
+  }
+  .form :where(input, button){
+    height: 52px;
+  }
+  .qr-code img{
+    width: 160px;
+  }  
+}
