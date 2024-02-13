@@ -10,7 +10,6 @@
 }
 
 body {
-    height: 100vh;
     width: 100%;
     background: url(/images/hero-bg.jpg) center/cover no-repeat;
     cursor: url('/cursor-square.svg'), auto;
@@ -134,47 +133,51 @@ header {
 }
 section{
     padding: 0 15%;
-    height: 292vh;
-    background: url(/images/hero-bg2.jpg) no-repeat bottom;
 }
 .home-text{
     background: url(/images/hero-bg.jpg) no-repeat;
 }
 .home-text h1{
-    font-size: 85px;
-    /* background: #B8E1FC; */
-    /* background: radial-gradient(circle farthest-corner at center center, #8F00FF 0%, #231421 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
-
+    font-size: 90px;
+    width: 100%;
+    font-weight: bolder;
     background: linear-gradient(135deg, #5335cf 0%, #de005e 25%, #f66e48 50%, #de005e 75%, #5335cf 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
     animation: animate 10s linear infinite;
-    
-    /* background: -webkit-linear-gradient(#8F00FF, #000000);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
+    margin: 0 auto;
     text-align:center;
     position: absolute;
-    top:35%;
-    right:50%;
-    transform:translate(50%, -50%);
+    top: 30%;
+    right: 50%;
+    transform: translate(50%, -50%);
 }
 #element {  
     font-size: xx-large;
     color: #db80fa;
     text-align:center;
     position: absolute;
-    top:48%;
+    top:42%;
     right:50%;
     transform:translate(50%, -50%);
     cursor: auto;
+}
+.line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2% 5%;
 }
 @media (max-width: 1850px) {
     section{
         padding: 0 8%;
         transition: .2s;
+    }
+    .home{
+        display: flex;
+        flex-wrap: wrap;
+        height: 90vh;
+        top: 0%;
     }
 }
 
@@ -184,29 +187,37 @@ section{
         transition: .2s;
     }
     #element{
-        font-size: larger;
-        top:55%;
+        font-size: xx-large;
+        top:45%;
         right:50%;
         transform:translate(50%, -50%);
+        width: 100%;
     }
-}
+    .home{
+        display: flex;
+        flex-wrap: wrap;
+        height: 94vh;
+    }
 @media (max-width: 950px){
     section{
         padding: 70px 4%;
     }
     .home{
-        height: auto;
         display: flex;
         flex-wrap: wrap;
-        /* height: 265vh; */
+        height: 83vh;
+        top: 0%;
     }
     .home-text h1{
-        font-size: 50px;
+        width: 100%;
+        font-size: xx-large;
+        font-weight: 800;
         top: 25%;
     }
     #element{
-        font-size: larger;
-        top:45%;
+        width: 100%;
+        font-size: x-large;
+        top:35%;
         right:50%;
         transform:translate(50%, -50%);
     }

@@ -15,6 +15,7 @@ body{
   align-items: center;
   background: url(/images/hero-bg2.jpg);
   justify-content: center;
+  overflow: auto;
 }
 ::selection{
   color: #fff;
@@ -48,6 +49,7 @@ body{
   padding: 0 15px;
   max-width: 760px;
   text-align: center;
+  top: 30%;
 }
 
 .qrcode-generator h1 {
@@ -211,11 +213,12 @@ header p{
     margin: auto;
     width: 300px;
     height: 500px;
-    padding: 30px 20px;
+    padding: 8px 20px;
     /* overflow-y: hidden; */
   }
   .wrapper.active{
-    height: 510px;
+    height: 490px;
+    overflow-y: hidden;
   }
   header p{
     color: #696969;
@@ -224,6 +227,11 @@ header p{
     height: 52px;
   }
   .qr-code img{
-    width: 160px;
+    width: 120px;
+    max-width: 100%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    left: 55%;
   }  
 }
