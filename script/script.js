@@ -30,37 +30,62 @@ signupLoginLink.forEach(link => {
     });
 });
 
-var swiper = new Swiper(".slide-container", {
-    slidesPerView: 4,
-    spaceBetween: 20,
-    sliderPerGroup: 4,
-    loop: true,
-    centerSlide: "true",
-    fade: "true",
-    grabCursor: "true",
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-      dynamicBullets: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  
-    breakpoints: {
-      0: {
-        slidesPerView: 1,
-      },
-      520: {
-        slidesPerView: 2,
-      },
-      768: {
-        slidesPerView: 3,
-      },
-      1000: {
-        slidesPerView: 4,
-      },
-    },
+// Initialize Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyA5BwMLrRFgoSKrbAkqFcJpSXfyGFRWoMI",
+  authDomain: "virtual-space-d2855.firebaseapp.com",
+  databaseURL: "https://virtual-space-d2855-default-rtdb.firebaseio.com",
+  projectId: "virtual-space-d2855",
+  storageBucket: "virtual-space-d2855.appspot.com",
+  messagingSenderId: "884133083454",
+  appId: "1:884133083454:web:ca908ee4f72403d018d46f"
+};
+firebase.initializeApp(firebaseConfig);
+
+const auth = firebase.auth();
+
+// Get login and signup forms
+const loginForm = document.querySelector('.form-box.login form');
+const signupForm = document.querySelector('.form-box.signup form');
+
+// Handle login
+loginForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = loginForm.querySelector('input[type="email"]').value;
+  const password = loginForm.querySelector('input[type="password"]').value;
+
+  try {
+    const userCredential = await auth.signInWithEmailAndPassword(email, password);
+    console.log('Login successful:', userCredential.user);
+    // Handle successful login (e.g., redirect to another page)
+  } catch (error) {
+    console.error('Login error:', error.message);
+    // Handle login error (e.g., display error message to user)
+  }
+});
+
+// Handle signup
+signupForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = signupForm.querySelector('input[type="email"]').value;
+  const password = signupForm.querySelector('input[type="password"]').value;
+
+  try {
+    const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+    console.log('Signup successful:', userCredential.user);
+    // Handle successful signup (e.g., redirect to another page)
+  } catch (error) {
+    console.error('Signup error:', error.message);
+    // Handle signup error (e.g., display error message to user)
+  }
 });
   
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    console.log('User logged in:', user.uid);
+    // Handle user being logged in (e.g., display welcome message)
+  } else {
+    console.log('No user logged in');
+    // Handle user being logged out (e.g., hide user-specific content)
+  }
+});
