@@ -30,62 +30,71 @@ signupLoginLink.forEach(link => {
     });
 });
 
-// Initialize Firebase
-const firebaseConfig = {
-  apiKey: "AIzaSyA5BwMLrRFgoSKrbAkqFcJpSXfyGFRWoMI",
-  authDomain: "virtual-space-d2855.firebaseapp.com",
-  databaseURL: "https://virtual-space-d2855-default-rtdb.firebaseio.com",
-  projectId: "virtual-space-d2855",
-  storageBucket: "virtual-space-d2855.appspot.com",
-  messagingSenderId: "884133083454",
-  appId: "1:884133083454:web:ca908ee4f72403d018d46f"
-};
-firebase.initializeApp(firebaseConfig);
+// // Initialize Firebase
+// const firebaseConfig = {
+//   apiKey: "AIzaSyA5BwMLrRFgoSKrbAkqFcJpSXfyGFRWoMI",
+//   authDomain: "virtual-space-d2855.firebaseapp.com",
+//   databaseURL: "https://virtual-space-d2855-default-rtdb.firebaseio.com",
+//   projectId: "virtual-space-d2855",
+//   storageBucket: "virtual-space-d2855.appspot.com",
+//   messagingSenderId: "884133083454",
+//   appId: "1:884133083454:web:ca908ee4f72403d018d46f"
+// };
+// const app = initializeApp(firebaseConfig);
+// firebase.initializeApp(firebaseConfig); 
 
-const auth = firebase.auth();
+// // Get login and signup forms
+// const loginForm = document.querySelector('.form-box login');
+// const signupForm = document.querySelector('.form-box signup');
 
-// Get login and signup forms
-const loginForm = document.querySelector('.form-box.login form');
-const signupForm = document.querySelector('.form-box.signup form');
+// // Handle login form submission
+// loginForm.addEventListener("submit", (e) => {
+//   e.preventDefault(); // Prevent form submission
+//   const email = loginForm.querySelector('input[type="email"]').value;
+//   const password = loginForm.querySelector('input[type="password"]').value;
+//   firebase.auth().signInWithEmailAndPassword(email, password)
+//     .then((userCredential) => {
+//       // Signed in successfully
+//       const user = userCredential.user;
+//       console.log("Logged in:", user);
+//     })
+//     .catch((error) => {
+//       // Handle login errors
+//       const errorCode = error.code;
+//       const errorMessage = error.message;
+//       console.error("Login error:", errorMessage);
+//     })
+//     .finally(() => {
+//       // Enable the login button after authentication attempt
+//       loginForm.querySelector('button[type="submit"]').disabled = false;
+//     });
 
-// Handle login
-loginForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const email = loginForm.querySelector('input[type="email"]').value;
-  const password = loginForm.querySelector('input[type="password"]').value;
+//   // Disable the login button to prevent multiple submissions
+//   loginForm.querySelector('button[type="submit"]').disabled = true;
+// });
 
-  try {
-    const userCredential = await auth.signInWithEmailAndPassword(email, password);
-    console.log('Login successful:', userCredential.user);
-    // Handle successful login (e.g., redirect to another page)
-  } catch (error) {
-    console.error('Login error:', error.message);
-    // Handle login error (e.g., display error message to user)
-  }
-});
+// // Handle signup form submission
+// signupForm.addEventListener("submit", (e) => {
+//   e.preventDefault(); // Prevent form submission
+//   const email = signupForm.querySelector('input[type="email"]').value;
+//   const password = signupForm.querySelector('input[type="password"]').value;
+//   firebase.auth().createUserWithEmailAndPassword(email, password)
+//     .then((userCredential) => {
+//       // Signed up successfully
+//       const user = userCredential.user;
+//       console.log("Signed up:", user);
+//     })
+//     .catch((error) => {
+//       // Handle signup errors
+//       const errorCode = error.code;
+//       const errorMessage = error.message;
+//       console.error("Signup error:", errorMessage);
+//     })
+//     .finally(() => {
+//       // Enable the signup button after authentication attempt
+//       signupForm.querySelector('button[type="submit"]').disabled = false;
+//     });
 
-// Handle signup
-signupForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const email = signupForm.querySelector('input[type="email"]').value;
-  const password = signupForm.querySelector('input[type="password"]').value;
-
-  try {
-    const userCredential = await auth.createUserWithEmailAndPassword(email, password);
-    console.log('Signup successful:', userCredential.user);
-    // Handle successful signup (e.g., redirect to another page)
-  } catch (error) {
-    console.error('Signup error:', error.message);
-    // Handle signup error (e.g., display error message to user)
-  }
-});
-  
-auth.onAuthStateChanged((user) => {
-  if (user) {
-    console.log('User logged in:', user.uid);
-    // Handle user being logged in (e.g., display welcome message)
-  } else {
-    console.log('No user logged in');
-    // Handle user being logged out (e.g., hide user-specific content)
-  }
-});
+//   // Disable the signup button to prevent multiple submissions
+//   signupForm.querySelector('button[type="submit"]').disabled = true;
+// });
