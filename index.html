@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="style/style.css" />
     <script src="script/script.js" defer></script>
 
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
   </head>
   <body>
     <header>
@@ -44,42 +45,82 @@
         <span class="close-btn material-symbols-rounded">close</span>
         <div class="form-box login">
           <div class="form-details">
-            <!-- <h2>Welcome Back</h2>
+            <h2>Welcome Back</h2>
             <p>
               Please log in using your personal information to stay connected
               with us.
-            </p> -->
+            </p>
           </div>
           <div class="form-content">
-            <h2>SIGNUP</h2>
+            <h2>LOGIN</h2>
             <form action="#">
               <div class="input-field">
-                <input type="email" required />
+                <input id="email" type="email" required />
                 <label>Email</label>
               </div>
               <div class="input-field">
-                <input type="password" required />
+                <input id="pass" type="password" required />
                 <label>Password</label>
               </div>
 
-              <button type="submit">Sign Up</button>
+              <button id="sub" type="submit">Log In</button>
+              <!-- <script>
+                const firebaseConfig = {
+                  apiKey: "AIzaSyA5BwMLrRFgoSKrbAkqFcJpSXfyGFRWoMI",
+                  authDomain: "virtual-space-d2855.firebaseapp.com",
+                  databaseURL:
+                    "https://virtual-space-d2855-default-rtdb.firebaseio.com",
+                  projectId: "virtual-space-d2855",
+                  storageBucket: "virtual-space-d2855.appspot.com",
+                  messagingSenderId: "884133083454",
+                  appId: "1:884133083454:web:ca908ee4f72403d018d46f",
+                };
+
+                // Initialize Firebase
+                firebase.initializeApp(firebaseConfig);
+
+                // Get authentication instance
+                const auth = firebase.auth();
+
+                // Get submit button
+                const submit = document.getElementById("sub");
+
+                // Add event listener for submit button click
+                submit.addEventListener("click", function (event) {
+                  event.preventDefault();
+                  const email = document.getElementById("email").value;
+                  const password = document.getElementById("pass").value;
+                  firebase
+                    .auth()
+                    .createUserWithEmailAndPassword(email, password)
+                    .then((userCredential) => {
+                      const user = userCredential.user;
+                      alert("Account created successfully");
+                    })
+                    .catch((error) => {
+                      const errorCode = error.code;
+                      const errorMessage = error.message;
+                      alert(errorMessage);
+                    });
+                });
+              </script> -->
             </form>
             <div class="bottom-link">
-              Already Have an account?
-              <a href="#" id="signup-link">Login</a>
+              Don't have an account?
+              <a href="#" id="signup-link">Signup</a>
             </div>
           </div>
         </div>
         <div class="form-box signup">
           <div class="form-details">
-            <!-- <h2>Create Account</h2>
+            <h2>Create Account</h2>
             <p>
               To become a part of our community, please sign up using your
               personal information.
-            </p> -->
+            </p>
           </div>
           <div class="form-content">
-            <h2>LOGIN</h2>
+            <h2>SIGNUP</h2>
             <form action="#">
               <div class="input-field">
                 <input type="email" required />
@@ -90,11 +131,50 @@
                 <label>Create password</label>
               </div>
 
-              <button type="submit">Login</button>
+              <button type="submit" id="sub">Sign Up</button>
+              <script>
+                // ... (Firebase initialization code)
+                const firebaseConfig = {
+                  apiKey: "AIzaSyA5BwMLrRFgoSKrbAkqFcJpSXfyGFRWoMI",
+                  authDomain: "virtual-space-d2855.firebaseapp.com",
+                  databaseURL:
+                    "https://virtual-space-d2855-default-rtdb.firebaseio.com",
+                  projectId: "virtual-space-d2855",
+                  storageBucket: "virtual-space-d2855.appspot.com",
+                  messagingSenderId: "884133083454",
+                  appId: "1:884133083454:web:ca908ee4f72403d018d46f",
+                };
+
+                // Initialize Firebase
+                firebase.initializeApp(firebaseConfig);
+
+                const signupSubmit = document.getElementById("sub");
+
+                signupSubmit.addEventListener("click", function (event) {
+                  event.preventDefault();
+
+                  const email = document.getElementById("email").value; // Assuming email field is within signup form
+                  const password = document.getElementById("pass").value; // Assuming password field is within signup form
+
+                  firebase
+                    .auth()
+                    .createUserWithEmailAndPassword(email, password)
+                    .then((userCredential) => {
+                      const user = userCredential.user;
+                      console.log("Account created successfully:", user);
+                      alert("Account created successfully");
+                    })
+                    .catch((error) => {
+                      const errorCode = error.code;
+                      const errorMessage = error.message;
+                      alert(errorMessage);
+                    });
+                });
+              </script>
             </form>
             <div class="bottom-link">
-              Don't have an account?
-              <a href="#" id="login-link">Signup</a>
+              Already have an account?
+              <a href="#" id="login-link">Login</a>
             </div>
           </div>
         </div>
@@ -118,7 +198,7 @@
           <div class="tool-info">
             <h2>Voice Generator</h2>
             <p>
-              Transform text into lifelike speech with our Voice Generator.
+              Transform text into life like speech with our Voice Generator.
               Powered by advanced AI technology, it offers natural-sounding
               voices in multiple languages and accents. Perfect for narrations,
               podcasts, and interactive applications.
@@ -168,12 +248,12 @@
         <div class="footer-col">
           <h4>Explore</h4>
           <ul class="links">
-            <li><a href="#">Logo Generator</a></li>
-            <li><a href="#">Voice Generator</a></li>
-            <li><a href="#">QR Code Generator</a></li>
-            <li><a href="#">Gradient Generator</a></li>
-            <!-- <li><a href="#">Art Skills</a></li>
-            <li><a href="#">New Uploads</a></li> -->
+            <li><a href="#">Free Designs</a></li>
+            <li><a href="#">Latest Designs</a></li>
+            <li><a href="#">Themes</a></li>
+            <li><a href="#">Popular Designs</a></li>
+            <li><a href="#">Art Skills</a></li>
+            <li><a href="#">New Uploads</a></li>
           </ul>
         </div>
 
@@ -182,7 +262,7 @@
           <ul class="links">
             <li><a href="#">Customer Agreement</a></li>
             <li><a href="#">Privacy Policy</a></li>
-            <!-- <li><a href="#">GDPR</a></li> -->
+            <li><a href="#">GDPR</a></li>
             <li><a href="#">Security</a></li>
             <li><a href="#">Testimonials</a></li>
             <li><a href="#">Media Kit</a></li>
@@ -219,95 +299,6 @@
         typeSpeed: 80,
         loop: true,
         showCursor: false,
-      });
-    </script>
-
-    <script type="module">
-      // Import the function you need from the SDK
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-      import { auth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-
-      // Initialize Firebase
-      const firebaseConfig = {
-        apiKey: "AIzaSyA5BwMLrRFgoSKrbAkqFcJpSXfyGFRWoMI",
-        authDomain: "virtual-space-d2855.firebaseapp.com",
-        databaseURL: "https://virtual-space-d2855-default-rtdb.firebaseio.com",
-        projectId: "virtual-space-d2855",
-        storageBucket: "virtual-space-d2855.appspot.com",
-        messagingSenderId: "884133083454",
-        appId: "1:884133083454:web:ca908ee4f72403d018d46f",
-      };
-      const app = initializeApp(firebaseConfig);
-    </script>
-
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js"></script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Get login and signup forms
-        const loginForm = document.querySelector(".form-box.login form");
-        const signupForm = document.querySelector(".form-box.signup form");
-
-        // Handle login form submission
-        loginForm.addEventListener("submit", (e) => {
-          e.preventDefault(); // Prevent form submission
-          const email = loginForm.querySelector('input[type="email"]').value;
-          const password = loginForm.querySelector(
-            'input[type="password"]'
-          ).value;
-          auth()
-            .signInWithEmailAndPassword(email, password)
-            .then((userCredential) => {
-              // Signed in successfully
-              const user = userCredential.user;
-              console.log("Logged in:", user);
-            })
-            .catch((error) => {
-              // Handle login errors
-              const errorCode = error.code;
-              const errorMessage = error.message;
-              console.error("Login error:", errorMessage);
-            })
-            .finally(() => {
-              // Enable the login button after authentication attempt
-              loginForm.querySelector('button[type="submit"]').disabled = false;
-            });
-
-          // Disable the login button to prevent multiple submissions
-          loginForm.querySelector('button[type="submit"]').disabled = true;
-        });
-
-        // Handle signup form submission
-        signupForm.addEventListener("submit", (e) => {
-          e.preventDefault(); // Prevent form submission
-          const email = signupForm.querySelector('input[type="email"]').value;
-          const password = signupForm.querySelector(
-            'input[type="password"]'
-          ).value;
-          auth()
-            .createUserWithEmailAndPassword(email, password)
-            .then((userCredential) => {
-              // Signed up successfully
-              const user = userCredential.user;
-              console.log("Signed up:", user);
-            })
-            .catch((error) => {
-              // Handle signup errors
-              const errorCode = error.code;
-              const errorMessage = error.message;
-              console.error("Signup error:", errorMessage);
-            })
-            .finally(() => {
-              // Enable the signup button after authentication attempt
-              signupForm.querySelector(
-                'button[type="submit"]'
-              ).disabled = false;
-            });
-
-          // Disable the signup button to prevent multiple submissions
-          signupForm.querySelector('button[type="submit"]').disabled = true;
-        });
       });
     </script>
   </body>
