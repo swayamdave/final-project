@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Rubik","Open Sans", sans-serif;
+}
+body {
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: url(/images/hero-bg2.jpg);
+}
+.grad-generator {
+  top: 0px;
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* background: url(/images/bg.jpg); */
+  background-position: top;
+}
+
+.grad-generator::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background: #121212;
+}
+
+.grad-generator .content {
+  position: relative;
+  color: #fff;
+  padding: 0 15px;
+  max-width: 760px;
+  text-align: center;
+}
+
+.grad-generator h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.grad-generator p {
+  margin-top: 10px;
+  font-size: 1.35rem;
+  margin-bottom: 20px;
+}
+.wrapper {
+  width: 450px;
+  padding: 25px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.06);
+}
+.wrapper .gradient-box {
+  height: 220px;
+  width: 100%;
+  border-radius: 7px;
+  background: linear-gradient(to left top, #5665E9, #A271F8);
+}
+.wrapper .row {
+  display: flex;
+  margin: 20px 0;
+  justify-content: space-between;
+}
+.options p {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.row :where(.column, button) {
+  width: calc(100% / 2 - 12px);
+}
+.options .select-box {
+  border-radius: 5px;
+  padding: 10px 15px;
+  border: 1px solid #aaa;
+}
+.select-box select {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1.12rem;
+  background: none;
+}
+.options .palette {
+  margin-left: 60px;
+}
+.palette input {
+  height: 41px;
+  width: calc(100% / 2 - 20px);
+}
+.palette input:last-child {
+  margin-left: 6px;
+}
+.wrapper textarea {
+  width: 100%;
+  color: #333;
+  font-size: 1.05rem;
+  resize: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.buttons button {
+  padding: 15px 0;
+  border: none;
+  outline: none;
+  color: #fff;
+  margin: 0 0 -15px;
+  font-size: 1.09rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.buttons .refresh {
+  background: #6C757D;
+}
+.buttons .refresh:hover {
+  background: #5f666d;
+}
+.buttons .copy {
+  background: #8A6CFF;
+}
+.buttons .copy:hover {
+  background: #704dff;
+}
+@media screen and (max-width: 920px) {
+  .grad-generator {
+    height: 50vh;
+    top: -20px;
+    background: url(/images/hero-bg2.jpg) center/cover no-repeat;
+  }
+
+  .grad-generator h1 {
+    font-size: 1.8rem;
+  }
+
+  .grad-generator p {
+    font-size: 1rem;
+  }
+  .wrapper{
+    width: auto;
+    height: auto;
+  }
+}
+@media screen and (max-width: 432px) {
+  .wrapper {
+    padding: 25px 20px;
+  }
+  .row :where(.column, button) {
+    width: calc(100% / 2 - 8px);
+  }
+  .options .select-box {
+    padding: 8px 15px;
+  }
+  .options .palette  {
+    margin-left: 40px;
+  }
+  .options .colors {
+    display: flex;
+    justify-content: space-between;
+  }
+  .palette input {
+    width: calc(100% / 2 - 5px);
+  }
+  .palette input:last-child {
+    margin-left: 0;
+  }
+}
